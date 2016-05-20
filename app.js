@@ -10,7 +10,26 @@ var addchild = require('./routes/addchild');
 var childrenlist = require('./routes/childrenlist');
 var login = require('./routes/login');
 var verify = require('./routes/verify');
+var orphanage=require('./routes/addOrphanage');
+var orphanageList=require('./routes/orphanagelist');
 var app = express();
+
+var mongoose = require('mongoose');
+try {
+  var mongodbUri = 'mongodb://tushargupta7:jerrymouse@ds015720.mlab.com:15720/helpinghand';
+
+  mongoose.connect(mongodbUri);
+  var db = mongoose.connection;
+  db.on('connected', function(){console.log("now connected")});
+  db.on('error', console.error.bind(console, 'connection error:'));
+  db.once('open', function () {
+    console.info('connected to database')
+  });
+}
+catch(err){
+  console.log(err.message);
+}
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -29,6 +48,8 @@ app.use('/addchild', addchild);
 app.use('/childrenlist', childrenlist);
 app.use('/login', login);
 app.use('/verify', verify);
+app.use('/addOrphanage',orphanage);
+app.use('/orphanagelist',orphanageList);
 // error handlers
 
 

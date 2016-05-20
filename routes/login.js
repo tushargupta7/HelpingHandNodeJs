@@ -5,7 +5,6 @@ require("google-closure-library");
 var express = require('express');
 var router = express.Router();
 var phoneUtil = require('google-libphonenumber');
-var mongoose = require('mongoose');
 var PNF = require('google-libphonenumber').PhoneNumberFormat;
 // Get an instance of `PhoneNumberUtil`.
 var phoneUtil = require('google-libphonenumber').PhoneNumberUtil.getInstance();
@@ -14,25 +13,12 @@ console.log(phoneUtil.format(phoneNumber, PNF.INTERNATIONAL));
 /*var mobnumber=mongoose.Schema({
     number :
 });*/
-try {
-var mongodbUri = 'mongodb://tushargupta7:jerrymouse@ds015720.mlab.com:15720/helpinghand';
 
-mongoose.connect(mongodbUri);
-    var db = mongoose.connection;
-db.on('connected', function(){console.log("now connected")});
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-  console.info('connected to database')
-});
-}
-catch(err){
-console.log(err.message);
-}
-
-console.log(mongoose.connection.readyState);
+/*
 var userSchema = mongoose.Schema({
     UUID: String
 },{collection: 'UserList'});
+*/
 
 //var user = mongoose.model('UserList', userSchema);
 var user = require('./model.js');

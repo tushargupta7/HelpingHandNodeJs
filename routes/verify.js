@@ -3,13 +3,10 @@
  */
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
 var assert = require('assert');
-var mongodbUri = 'mongodb://tushargupta7:jerrymouse@ds015720.mlab.com:15720/helpinghand';
-mongoose.createConnection(mongodbUri);
 var jwt = require('jwt-simple');
 //mongoose.connect(mongodbUri);
-var db=mongoose.connection;
+
 var app=express();
 app.set('jwtTokenSecret', 'hello');
 //var db = mongoose.createConnection(mongodbUri);
@@ -22,7 +19,7 @@ app.set('jwtTokenSecret', 'hello');
 },{collection: 'UserList'});*/
 
 var user = require('./model.js');
-db.on('error', console.error.bind(console, 'connection error:'));
+
 //var url = 'mongodb://localhost:27017/test';
 /*
 MongoClient.connect(mongodbUri, function(err, db) {
@@ -113,9 +110,6 @@ function verifyOtpFromDb(Json) {
     });
 };*/
 
-function generateJsonWithToken(success) {
-
-}
 router.post('/',function(request, response){
     var Json=request.body;
     console.log(Json);
