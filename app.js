@@ -8,10 +8,13 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var addchild = require('./routes/addchild');
 var childrenlist = require('./routes/childrenlist');
+var requirements= require('./routes/getrequirements');
 var login = require('./routes/login');
 var verify = require('./routes/verify');
 var orphanage=require('./routes/addOrphanage');
 var orphanageList=require('./routes/orphanagelist');
+var addproduct=require('./routes/addproduct');
+var orphrequirement=require('./routes/AddOrphanageRequirement');
 var app = express();
 
 var mongoose = require('mongoose');
@@ -50,6 +53,9 @@ app.use('/login', login);
 app.use('/verify', verify);
 app.use('/addOrphanage',orphanage);
 app.use('/orphanagelist',orphanageList);
+app.use('/getrequirements',requirements);
+app.use('/addproduct',addproduct);
+app.use('/addorphanagerequirement',orphrequirement);
 // error handlers
 
 
