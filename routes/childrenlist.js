@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var child=require('./child');
-var user=require('./model');
+var user=require('./Usermodel');
 router.post('/',function (req, res, next) {
     try{
         var Json=req.body;

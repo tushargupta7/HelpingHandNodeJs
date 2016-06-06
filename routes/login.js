@@ -21,7 +21,7 @@ var userSchema = mongoose.Schema({
 */
 
 //var user = mongoose.model('UserList', userSchema);
-var user = require('./model.js');
+var user = require('./Usermodel.js');
 function saveToMongoDb(Json ) {
     var otp= Math.floor(Math.random()*90000) + 10000;
     var uuid= guid();

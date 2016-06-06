@@ -18,7 +18,7 @@ app.set('jwtTokenSecret', 'hello');
     token: String
 },{collection: 'UserList'});*/
 
-var user = require('./model.js');
+var user = require('./Usermodel.js');
 
 //var url = 'mongodb://localhost:27017/test';
 /*

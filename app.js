@@ -15,6 +15,7 @@ var orphanage=require('./routes/addOrphanage');
 var orphanageList=require('./routes/orphanagelist');
 var addproduct=require('./routes/addproduct');
 var orphrequirement=require('./routes/AddOrphanageRequirement');
+var studentRequirements=require('./routes/addStudentRequirements');
 var app = express();
 
 var mongoose = require('mongoose');
@@ -56,6 +57,7 @@ app.use('/orphanagelist',orphanageList);
 app.use('/getrequirements',requirements);
 app.use('/addproduct',addproduct);
 app.use('/addorphanagerequirement',orphrequirement);
+//app.use('/sendstudentrequirement',studentRequirements);
 // error handlers
 
 
